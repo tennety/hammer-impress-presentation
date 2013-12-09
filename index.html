@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      Hammer JS: A multi-touch gesture library
+    </title>
+    <link href="stylesheets/normalize-css/normalize.css" rel="stylesheet">
+    <link href="stylesheets/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="impress">
+      <div class="step slide" data-x="-1000" data-y="1000" data-z="3000" id="intro">
+        <div class="head">
+          <h1>
+            Hammer Time
+          </h1>
+          <p class="sub">
+            Let's zoom in...
+          </p>
+        </div>
+        <div class="content">
+          <div class="feature">
+            <img src="http://media3.giphy.com/media/LkstI0INhB48U/giphy.gif">
+          </div>
+        </div>
+      </div>
+      <div class="step slide" data-x="-500" data-y="1300" id="zoom">
+        <div class="head">
+          <h1>
+            What is it?
+          </h1>
+          <p class="sub">
+            A JS library for multi-touch gestures
+          </p>
+        </div>
+        <div class="content">
+          <h2>
+            Supports a variety of gestures:
+          </h2>
+          <ul>
+            <li>
+              tap
+            </li>
+            <li>
+              doubletap
+            </li>
+            <li>
+              drag
+            </li>
+            <li>
+              swipe
+            </li>
+            <li>
+              pinch
+            </li>
+            <li>
+              rotate
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="step slide" data-x="-500" data-y="300" id="plugin">
+        <div class="head">
+          <h1>
+            Like jQuery?
+          </h1>
+          <p class="sub">
+            There's a plugin!
+          </p>
+        </div>
+        <div class="content"></div>
+      </div>
+    </div>
+    <script src="/bower_components/jquery/jquery.js"></script>
+    <script src="/bower_components/hammerjs/dist/hammer.js"></script>
+    <script src="/bower_components/hammerjs/dist/jquery.hammer.js"></script>
+    <script src="/bower_components/impress.js/js/impress.js"></script>
+    <script type="text/javascript">
+      impress().init()
+    </script>
+  </body>
+</html>

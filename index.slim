@@ -1,0 +1,44 @@
+doctype html
+html lang="en"
+  head
+    title Hammer JS: A multi-touch gesture library
+    link href="stylesheets/normalize-css/normalize.css" rel="stylesheet"
+    link href="stylesheets/main.css" rel="stylesheet"
+  body
+    #impress
+      #intro.step.slide data-x="-1000" data-y="1000" data-z="3000"
+        .head
+          h1 Hammer Time
+          p.sub Let's zoom in...
+        .content
+          .feature
+            img src="http://media3.giphy.com/media/LkstI0INhB48U/giphy.gif"
+
+      #zoom.step.slide data-x="-500" data-y="1300"
+        .head
+          h1 What is it?
+          p.sub A JS library for multi-touch gestures
+        .content
+          h2 Supports a variety of gestures:
+          ul
+            li tap
+            li doubletap
+            li drag
+            li swipe
+            li pinch
+            li rotate
+
+      #plugin.step.slide data-x="-500" data-y="300"
+        .head
+          h1 Like jQuery?
+          p.sub There's a plugin!
+        .content
+
+
+    script src="/bower_components/jquery/jquery.js"
+    script src="/bower_components/hammerjs/dist/hammer.js"
+    script src="/bower_components/hammerjs/dist/jquery.hammer.js"
+    script src="/bower_components/impress.js/js/impress.js"
+    javascript:
+      impress().init()
+

@@ -1,0 +1,47 @@
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+
+$dark-blue: #23414F;
+$blackish: #050304;
+$brown: #AB8102;
+$green: #3A4A19;
+$ochre: #E3AE0E;
+
+body {
+  font-family: $helvetica;
+  background-color: $dark-blue;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.5em;
+}
+
+.step.slide {
+  @include outer-container;
+  border-radius: 20px;
+  width: 1000px;
+  height: 600px;
+  padding: 20px;
+  background-color: $blackish;
+  opacity: 0.8;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $brown;
+  h1 {
+    font-size: 60px;
+  }
+
+  .sub {
+    font-size: 30px;
+  }
+}
+
+.feature {
+  @include shift(4.5);
+}
+
+.content {
+  padding: 20px;
+}
