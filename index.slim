@@ -6,7 +6,7 @@ html lang="en"
     link href="stylesheets/main.css" rel="stylesheet"
   body
     #impress
-      #intro.step.slide data-x="-1000" data-y="1000" data-z="3000"
+      #intro.step.slide data-x="-1000" data-y="1000"
         .head
           h1 Hammer Time
           p.sub Let's zoom in...
@@ -14,31 +14,104 @@ html lang="en"
           .feature
             img src="http://media3.giphy.com/media/LkstI0INhB48U/giphy.gif"
 
-      #zoom.step.slide data-x="-500" data-y="1300"
+      #zoom.step.slide data-x="-900" data-y="1300" data-z="-3000"
         .head
           h1 What is it?
           p.sub A JS library for multi-touch gestures
         .content
-          h2 Supports a variety of gestures:
-          ul
-            li tap
-            li doubletap
-            li drag
-            li swipe
-            li pinch
-            li rotate
+          h3 Supports a variety of gestures:
+          section
+            .left-col
+              ul.events
+            .hammertime
+              img src="/images/cant_touch.jpg"
 
-      #plugin.step.slide data-x="-500" data-y="300"
+      #details.step.slide data-x="1300" data-y="300" data-rotate-z="-90"
+        .head
+          h1 Details
+          p.sub How it works
+        .content
+          markdown:
+            * detection and conflict resolution
+            * event data:
+              * event type
+              * touches
+              * direction
+              * velocity
+              * angle
+              * scale
+              * rotation
+            * event delegation
+            * options to override browser behavior
+
+      #plugin.step.slide data-x="800" data-y="-1000" data-rotate-z="-180"
         .head
           h1 Like jQuery?
           p.sub There's a plugin!
         .content
+          markdown:
+            ### jQuery:
+            * jquery.hammer.js
+
+            ### Browser debugging:
+            * showtouches -- Shows the touches visually
+            * fakemultitouch -- Simulates multi-touch in browser when Shift is pressed
+
+      #how.step.slide data-x="-700" data-y="-1000" data-rotate-z="-180"
+        .head
+          h1 How to use
+          p.sub Add listeners for the event(s)
+        .content
+          markdown:
+            ### Without the jQuery plugin:
+                Hammer(el).on("swipeleft", function() {
+                  alert('you swiped left!');
+                });
+
+            ### Or with jQuery:
+                var hammertime = $(el).hammer();
+                hammertime.on("swipeleft", function() {
+                  alert('you swiped left!');
+                });
+
+      #ember.step.slide data-x="-2000" data-y="-1000" data-rotate-y="90"
+        .head
+          h1 Use with EmberJS
+        .content
+          markdown:
+            ### Why?
+            * Allow use of your webapp on mobile devices without building a whole native app
+            * Ember's support for touch events is fairly minimal
+
+            ### How?
+            * The `didInsertElement` hook allows creation of the Hammer instance
+            * The touch support can be added via a Mixin
+            * The actual actions and options can be declared in the actual view
+
+            ### Demo | Code
+
+      #resources.step.slide data-x= "2000" data-y="-1000" data-rotate-y="90"
+        .head
+          h1 Resources
+        .content
+          markdown:
+            [ the HammerJS site ]( http://eightmedia.github.io/hammer.js/ )
+
+            [ Multitouch example ](http://riagora.com/mobile/hammer/)
+
+
+      #overview.step.slide data-x="0" data-y="0" data-z="3000"
 
 
     script src="/bower_components/jquery/jquery.js"
     script src="/bower_components/hammerjs/dist/hammer.js"
-    script src="/bower_components/hammerjs/dist/jquery.hammer.js"
+    script src="/bower_components/hammerjs/plugins/jquery.hammer.js"
+    script src="/bower_components/hammerjs/plugins/hammer.fakemultitouch.js"
+    script src="/bower_components/hammerjs/plugins/hammer.showtouches.js"
     script src="/bower_components/impress.js/js/impress.js"
+    script src="/javascripts/main.js"
     javascript:
       impress().init()
+      Hammer.plugins.showTouches();
+      Hammer.plugins.fakeMultitouch();
 

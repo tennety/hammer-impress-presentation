@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="impress">
-      <div class="step slide" data-x="-1000" data-y="1000" data-z="3000" id="intro">
+      <div class="step slide" data-x="-1000" data-y="1000" id="intro">
         <div class="head">
           <h1>
             Hammer Time
@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-      <div class="step slide" data-x="-500" data-y="1300" id="zoom">
+      <div class="step slide" data-x="-900" data-y="1300" data-z="-3000" id="zoom">
         <div class="head">
           <h1>
             What is it?
@@ -34,32 +34,49 @@
           </p>
         </div>
         <div class="content">
-          <h2>
+          <h3>
             Supports a variety of gestures:
-          </h2>
-          <ul>
-            <li>
-              tap
-            </li>
-            <li>
-              doubletap
-            </li>
-            <li>
-              drag
-            </li>
-            <li>
-              swipe
-            </li>
-            <li>
-              pinch
-            </li>
-            <li>
-              rotate
-            </li>
-          </ul>
+          </h3>
+          <section>
+            <div class="left-col">
+              <ul class="events"></ul>
+            </div>
+            <div class="hammertime">
+              <img src="/images/cant_touch.jpg">
+            </div>
+          </section>
         </div>
       </div>
-      <div class="step slide" data-x="-500" data-y="300" id="plugin">
+      <div class="step slide" data-rotate-z="-90" data-x="1300" data-y="300" id="details">
+        <div class="head">
+          <h1>
+            Details
+          </h1>
+          <p class="sub">
+            How it works
+          </p>
+        </div>
+        <div class="content">
+          <ul>
+            <li>detection and conflict resolution</li>
+            <li>event data:
+              <ul>
+                <li>event type</li>
+                <li>touches</li>
+                <li>direction</li>
+                <li>velocity</li>
+                <li>angle</li>
+                <li>scale</li>
+                <li>rotation</li>
+              </ul>
+            </li>
+            <li>event delegation</li>
+            <li>options to override browser behavior</li>
+          </ul>
+          
+        </div>
+      </div>
+      <div class="step slide" data-rotate-z="-180" data-x="800" data-y="-1000" id="plugin">
         <div class="head">
           <h1>
             Like jQuery?
@@ -68,15 +85,93 @@
             There's a plugin!
           </p>
         </div>
-        <div class="content"></div>
+        <div class="content">
+          <h3 id="jquery">jQuery:</h3>
+          <ul>
+            <li>jquery.hammer.js</li>
+          </ul>
+          
+          <h3 id="browser-debugging">Browser debugging:</h3>
+          <ul>
+            <li>showtouches – Shows the touches visually</li>
+            <li>fakemultitouch – Simulates multi-touch in browser when Shift is pressed</li>
+          </ul>
+          
+        </div>
       </div>
+      <div class="step slide" data-rotate-z="-180" data-x="-700" data-y="-1000" id="how">
+        <div class="head">
+          <h1>
+            How to use
+          </h1>
+          <p class="sub">
+            Add listeners for the event(s)
+          </p>
+        </div>
+        <div class="content"><h3 id="without-the-jquery-plugin">Without the jQuery plugin:</h3>
+<pre><code>Hammer(el).on("swipeleft", function() {
+  alert('you swiped left!');
+});
+</code></pre>
+
+<h3 id="or-with-jquery">Or with jQuery:</h3>
+<pre><code>var hammertime = $(el).hammer();
+hammertime.on("swipeleft", function() {
+  alert('you swiped left!');
+});
+</code></pre>
+
+        </div>
+      </div>
+      <div class="step slide" data-rotate-y="90" data-x="-2000" data-y="-1000" id="ember">
+        <div class="head">
+          <h1>
+            Use with EmberJS
+          </h1>
+        </div>
+        <div class="content"><h3 id="why">Why?</h3>
+<ul>
+  <li>Allow use of your webapp on mobile devices without building a whole native app</li>
+  <li>Ember's support for touch events is fairly minimal</li>
+</ul>
+
+<h3 id="how">How?</h3>
+<ul>
+  <li>The <code>didInsertElement</code> hook allows creation of the Hammer instance</li>
+  <li>The touch support can be added via a Mixin</li>
+  <li>The actual actions and options can be declared in the actual view</li>
+</ul>
+
+<h3 id="demo--code">Demo | Code</h3>
+
+        </div>
+      </div>
+      <div class="step slide" data-rotate-y="90" data-x="2000" data-y="-1000" id="resources">
+        <div class="head">
+          <h1>
+            Resources
+          </h1>
+        </div>
+        <div class="content">
+          <p><a href="http://eightmedia.github.io/hammer.js/"> the HammerJS site </a></p>
+          
+          <p><a href="http://riagora.com/mobile/hammer/"> Multitouch example </a></p>
+          
+        </div>
+      </div>
+      <div class="step slide" data-x="0" data-y="0" data-z="3000" id="overview"></div>
     </div>
     <script src="/bower_components/jquery/jquery.js"></script>
     <script src="/bower_components/hammerjs/dist/hammer.js"></script>
-    <script src="/bower_components/hammerjs/dist/jquery.hammer.js"></script>
+    <script src="/bower_components/hammerjs/plugins/jquery.hammer.js"></script>
+    <script src="/bower_components/hammerjs/plugins/hammer.fakemultitouch.js"></script>
+    <script src="/bower_components/hammerjs/plugins/hammer.showtouches.js"></script>
     <script src="/bower_components/impress.js/js/impress.js"></script>
+    <script src="/javascripts/main.js"></script>
     <script type="text/javascript">
       impress().init()
+      Hammer.plugins.showTouches();
+      Hammer.plugins.fakeMultitouch();
     </script>
   </body>
 </html>
